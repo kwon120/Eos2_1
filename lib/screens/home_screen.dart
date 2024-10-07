@@ -9,6 +9,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List toDoLists = [];
+
+  @override
+  void initState() {
+    super.initState();
+    toDoLists.add("11111111");
+    toDoLists.add("22222222");
+    toDoLists.add("33333333");
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,9 +95,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                )
+                ),
+                Positioned(
+                    bottom: 30,
+                    right: 30,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Icon(Icons.add, size: 30, color: Colors.white),
+                      style: ElevatedButton.styleFrom(
+                        elevation: 10,
+                        backgroundColor: Color(0xFFA4C639).withOpacity(0.3),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: EdgeInsets.all(0),
+                        minimumSize: Size(50, 50),
+                      ),
+                    )),
               ],
-            )
+            ),
           ],
         ));
   }
