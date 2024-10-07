@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 500,
+                    height: MediaQuery.of(context).size.height - 300,
                     decoration: BoxDecoration(
                       color: Color(0xFFA4C639).withOpacity(0.1),
                       borderRadius: BorderRadius.circular(20),
@@ -96,14 +96,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: 80, left: 40, right: 25),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height - 400,
+                    child: ListView.builder(itemCount: toDoLists.length, itemBuilder: (BuildContext context, int index){
+                      return ListTile(
+                        title: Text(toDoLists[index]),
+                      );
+                    }),
+                  ),
+                ),
                 Positioned(
                     bottom: 30,
-                    right: 30,
+                    right: 50,
                     child: ElevatedButton(
-                      onPressed: () {},
-                      child: Icon(Icons.add, size: 30, color: Colors.white),
+                      onPressed: () {
+                        setState(() {
+                          toDoLists.add("++++++++");
+                        });
+                      },
+                      child: Icon(
+                          Icons.add,
+                          size: 30,
+                          color: Colors.white
+                      ),
                       style: ElevatedButton.styleFrom(
-                        elevation: 10,
+                        elevation: 0,
                         backgroundColor: Color(0xFFA4C639).withOpacity(0.3),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
